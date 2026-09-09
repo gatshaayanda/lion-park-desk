@@ -56,11 +56,11 @@ export default function InstallPrompt() {
       <div className="relative flex items-start justify-between gap-3">
         <div>
           <p className="text-sm font-extrabold text-[var(--text-primary)]">
-            Install AdminHub Global
+            Install Lion Park Desk
           </p>
           <p className="mt-1 text-sm leading-6 text-[var(--text-secondary)]">
-            Add the PWA to your device for quicker access to the command center,
-            Partner Portal, Client Hub, project workflows, and support tools.
+            Add Lion Park Desk to your device for quicker access to park
+            information and staff operations.
           </p>
         </div>
 
@@ -86,8 +86,8 @@ export default function InstallPrompt() {
       </div>
 
       <p className="relative mt-3 text-xs leading-5 text-[var(--text-muted)]">
-        Offline-aware access may show saved content, but fresh messages, uploads,
-        and Firebase updates still require internet.
+        Saved pages may be available offline, but fresh park updates still
+        require an internet connection.
       </p>
     </div>
   );

@@ -1,16 +1,29 @@
 // src/utils/firebaseAdmin.ts
-import * as admin from 'firebase-admin'
+import * as admin from "firebase-admin";
 
-// Parse your JSON‐encoded credentials out of the env var
-// (make sure FIREBASE_ADMIN_KEY is set in Vercel as the full JSON blob)
-const serviceAccount = JSON.parse(
-  process.env.FIREBASE_ADMIN_KEY!
-) as admin.ServiceAccount
+/**
+ * Returns the Admin SDK database only from server-side code. The service-account
+ * JSON is intentionally read lazily so importing this module never parses or
+ * exposes credentials in routes that do not need administrative access.
+ */
+export function getAdminDb() {
+  if (!admin.apps.length) {
+    const encodedServiceAccount = process.env.FIREBASE_ADMIN_KEY;
 
-if (!admin.apps.length) {
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-  })
+    if (!encodedServiceAccount) {
+      throw new Error(
+        "FIREBASE_ADMIN_KEY is required before using the Firebase Admin SDK."
+      );
+    }
+
+    const serviceAccount = JSON.parse(
+      encodedServiceAccount
+    ) as admin.ServiceAccount;
+
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+    });
+  }
+
+  return admin.firestore();
 }
-
-export const adminDb = admin.firestore()

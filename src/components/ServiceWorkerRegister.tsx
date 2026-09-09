@@ -14,12 +14,12 @@ export default function ServiceWorkerRegister() {
         });
 
         console.log(
-          "AdminHub Global service worker registered:",
+          "Lion Park Desk service worker registered:",
           registration.scope
         );
       } catch (error) {
         console.warn(
-          "AdminHub Global service worker registration failed:",
+          "Lion Park Desk service worker registration failed:",
           error
         );
       }

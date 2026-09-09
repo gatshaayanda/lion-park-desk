@@ -1,17 +1,11 @@
-const CACHE_VERSION = "sparkle-legacy-v1";
+const CACHE_VERSION = "lion-park-foundation-v1";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
 const APP_SHELL = [
   "/",
+  "/desk",
   "/offline",
-  "/claims",
-  "/blog",
-  "/c/short-term",
-  "/c/long-term",
-  "/c/business",
-  "/c/retirement",
-  "/client/login",
   "/placeholder.png",
   "/manifest.webmanifest",
 ];

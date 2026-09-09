@@ -2,19 +2,19 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "AdminHub Global",
-    short_name: "AH Global",
+    name: "Lion Park Desk",
+    short_name: "Lion Park",
     description:
-      "A custom PWA operating system for managing agents, leads, client onboarding, project delivery, proposals, messaging, and recurring managed support.",
+      "Lion Park Resort operations and visitor information in one place.",
     start_url: "/",
     scope: "/",
     display: "standalone",
     display_override: ["standalone", "minimal-ui", "browser"],
     orientation: "portrait",
-    background_color: "#060a12",
-    theme_color: "#060a12",
+    background_color: "#f7f4ec",
+    theme_color: "#244d35",
     lang: "en",
-    categories: ["business", "productivity", "utilities"],
+    categories: ["travel", "business", "utilities"],
     icons: [
       {
         src: "/icon",
@@ -35,10 +35,10 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
-        name: "AdminHub Global Control",
-        short_name: "Control",
-        description: "Open the AdminHub Global command dashboard.",
-        url: "/admin/dashboard",
+        name: "Staff Desk",
+        short_name: "Desk",
+        description: "Open Lion Park staff operations.",
+        url: "/desk",
         icons: [
           {
             src: "/icon",
@@ -48,23 +48,10 @@ export default function manifest(): MetadataRoute.Manifest {
         ],
       },
       {
-        name: "Partner Portal",
-        short_name: "Partners",
-        description: "Open the partner and agent workspace.",
-        url: "/partners",
-        icons: [
-          {
-            src: "/icon",
-            sizes: "512x512",
-            type: "image/png",
-          },
-        ],
-      },
-      {
-        name: "Client Hub",
-        short_name: "Client Hub",
-        description: "Open the client project portal.",
-        url: "/client/dashboard",
+        name: "Visitor View",
+        short_name: "Visit",
+        description: "See today’s Lion Park visitor information.",
+        url: "/",
         icons: [
           {
             src: "/icon",

@@ -4,11 +4,8 @@ import "./globals.css";
 
 import InstallPrompt from "@/components/InstallPrompt";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Loader from "@/components/AdminHubLoader";
-import ChatWidget from "@/components/ChatWidget";
-import { AnalyticsProvider } from "@/components/AnalyticsProvider";
+import LionParkFooter from "@/components/LionParkFooter";
+import LionParkHeader from "@/components/LionParkHeader";
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -29,52 +26,43 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: {
-    default: "AdminHub Global",
-    template: "%s | AdminHub Global",
+    default: "Lion Park Desk",
+    template: "%s | Lion Park Desk",
   },
   description:
-    "AdminHub Global is a custom PWA operating system for managing agents, leads, client onboarding, project delivery, proposals, messaging, and recurring managed support.",
-  applicationName: "AdminHub Global",
+    "A simple shared home for Lion Park Resort operations and visitor information.",
+  applicationName: "Lion Park Desk",
   keywords: [
-    "AdminHub Global",
-    "AdminHub",
-    "AdminHub Pty Ltd",
-    "custom PWA framework",
-    "business operations platform",
-    "agent management",
-    "client portal",
-    "admin dashboard",
-    "lead pipeline",
-    "project delivery system",
-    "48-hour live prototype",
-    "managed support platform",
-    "Next.js Firebase PWA",
+    "Lion Park Resort",
+    "resort operations",
+    "visitor information",
+    "park desk",
   ],
   manifest: "/manifest.webmanifest",
   appleWebApp: {
     capable: true,
-    title: "AdminHub Global",
-    statusBarStyle: "black-translucent",
+    title: "Lion Park Desk",
+    statusBarStyle: "default",
   },
   openGraph: {
-    title: "AdminHub Global",
+    title: "Lion Park Desk",
     description:
-      "A custom 9th-iteration PWA framework and operating platform for agent-led SME digital delivery, client portals, project workflows, and managed support.",
-    siteName: "AdminHub Global",
+      "Your park, in one place.",
+    siteName: "Lion Park Desk",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AdminHub Global",
+    title: "Lion Park Desk",
     description:
-      "A custom PWA operating system for agents, leads, clients, projects, proposals, and recurring support.",
+      "Your park, in one place.",
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#060a12",
+  themeColor: "#244d35",
 };
 
 export default function RootLayout({
@@ -85,7 +73,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      data-theme="dark"
+      data-theme="lion-park"
       className={`${inter.variable} ${montserrat.variable}`}
       suppressHydrationWarning
     >
@@ -93,25 +81,16 @@ export default function RootLayout({
         suppressHydrationWarning
         className="min-h-screen bg-[var(--background)] text-[var(--foreground)] font-sans antialiased"
       >
-        <Loader />
+        <div className="flex min-h-screen flex-col bg-[var(--background)]">
+          <LionParkHeader />
+          <main className="flex-1">{children}</main>
+          <LionParkFooter />
+        </div>
 
-        <AnalyticsProvider>
-          <div className="flex min-h-screen flex-col bg-[var(--background)]">
-            <div className="sticky top-0 z-40 border-b border-[var(--border)] bg-[rgba(6,10,18,0.82)] shadow-[0_10px_35px_rgba(0,0,0,0.28)] backdrop-blur-xl">
-              <Header />
-            </div>
-
-            <main className="flex-1">{children}</main>
-
-            <Footer />
-          </div>
-
-          <ServiceWorkerRegister />
-          <InstallPrompt />
-          <ChatWidget />
-          <Analytics />
-          <SpeedInsights />
-        </AnalyticsProvider>
+        <ServiceWorkerRegister />
+        <InstallPrompt />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
