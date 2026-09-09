@@ -15,7 +15,8 @@ Core loop:
 - **User** — Product Owner and Final Reviewer
 - **ChatGPT** — Technical Navigator
 - **Codex** — Hands-on Implementation Agent
-- **VS Code** — Local development workspace, terminal, file inspection, Git review, and human control layer
+- **VS Code** — The user's local development workspace, terminal, file inspection, Git review, and human control layer
+- **Git Bash** — The user's terminal shell for project and Git commands in VS Code
 - **Git/GitHub** — Checkpoints, source of truth, and recovery
 
 ## Golden rule
@@ -42,6 +43,23 @@ Core loop:
 - `main` should track `origin/main`.
 - `adminhub-global` is the preserved original AdminHub repository.
 - Never push Lion Park work to `adminhub-global`.
+- When Codex cannot perform a Git operation because of local Windows permissions or ACL restrictions, Codex must stop and provide the exact Git Bash command(s) for the user to run manually.
+- Codex must not repeatedly attempt the same denied `.git` operation.
+- Git commands provided to the user must be written as Git Bash commands.
+- The user remains the human control layer for Git operations when Codex lacks filesystem permission.
+
+## Checkpoint procedure
+
+Follow this procedure within the permanent workflow:
+
+1. Implement the phase.
+2. Verify the result.
+3. Codex attempts the checkpoint operation if permissions allow.
+4. If Codex lacks permission, stop.
+5. Give the user the exact Git Bash command(s).
+6. The user runs them in VS Code Git Bash.
+7. Codex verifies the resulting state.
+8. Only then continue.
 
 ## CONTINUE/RECOVER procedure
 
