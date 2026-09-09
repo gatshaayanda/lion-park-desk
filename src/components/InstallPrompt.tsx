@@ -48,17 +48,17 @@ export default function InstallPrompt() {
   }
 
   return (
-    <div className="fixed bottom-24 right-6 z-40 max-w-[320px] overflow-hidden rounded-[1.25rem] border border-[rgba(255,255,255,0.16)] bg-[rgba(11,18,32,0.98)] p-4 shadow-[var(--shadow-lg)] backdrop-blur-xl">
-      <div className="pointer-events-none absolute inset-0 panel-grid opacity-30" />
-      <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[rgba(77,163,255,0.16)] blur-2xl" />
-      <div className="pointer-events-none absolute -bottom-10 -left-10 h-28 w-28 rounded-full bg-[rgba(24,199,184,0.1)] blur-2xl" />
+    <div className="fixed bottom-24 right-6 z-40 max-w-[320px] overflow-hidden rounded-[1.25rem] border border-white/25 bg-[#11110f] p-4 text-white shadow-[var(--shadow-lg)]">
+      <div className="pointer-events-none absolute inset-0 panel-grid opacity-10" />
+      <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[rgba(244,196,0,0.12)] blur-2xl" />
+      <div className="pointer-events-none absolute -bottom-10 -left-10 h-28 w-28 rounded-full bg-[rgba(0,169,216,0.08)] blur-2xl" />
 
       <div className="relative flex items-start justify-between gap-3">
         <div>
           <p className="text-sm font-extrabold text-white">
             Install Lion Park Desk
           </p>
-          <p className="mt-1 text-sm leading-6 text-[rgba(255,255,255,0.78)]">
+          <p className="mt-1 text-sm leading-6 text-white">
             Add Lion Park Desk to your device for quicker access to park
             information and staff operations.
           </p>
@@ -67,7 +67,7 @@ export default function InstallPrompt() {
         <button
           type="button"
           onClick={() => setDismissed(true)}
-          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[rgba(255,255,255,0.18)] bg-[rgba(6,10,18,0.72)] text-[rgba(255,255,255,0.78)] transition hover:bg-[var(--brand-tint)] hover:text-white"
+          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/10 text-white transition hover:bg-white/20 hover:text-white"
           aria-label="Dismiss install prompt"
         >
           <X size={16} />
@@ -85,7 +85,7 @@ export default function InstallPrompt() {
         </button>
       </div>
 
-      <p className="relative mt-3 text-xs leading-5 text-[rgba(255,255,255,0.58)]">
+      <p className="relative mt-3 text-xs leading-5 text-white/75">
         Saved pages may be available offline, but fresh park updates still
         require an internet connection.
       </p>
